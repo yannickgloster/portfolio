@@ -3083,6 +3083,11 @@
 
 /* Banner */
 
+.nameLight {
+	color: #ffffff;
+	font-weight: lighter;
+}
+
 	body.is-touch #banner {
 		background-attachment: scroll;
 	}
