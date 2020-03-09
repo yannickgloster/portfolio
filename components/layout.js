@@ -12,17 +12,18 @@ const Layout = props => (
       }}
     >
       <Flex px={2} alignItems="center" bg="primary">
-        <Link fontWeight="bold" href="/">
-          YannickGloster.com
+        <Link variant="links.nav" fontWeight="bold" href="/">
+          <i class="fa fa-grav" aria-hidden="true"></i>
+          {"  "}YannickGloster.com
         </Link>
         <Box mx="auto" />
-        <Link p={2} href="/cs">
+        <Link variant="links.nav" p={2} href="/cs">
           Computer Science
         </Link>
-        <Link p={2} href="/media">
+        <Link variant="links.nav" p={2} href="/media">
           Media
         </Link>
-        <Link p={2} href="/sailing">
+        <Link variant="links.nav" p={2} href="/sailing">
           Sailing
         </Link>
       </Flex>
@@ -39,7 +40,9 @@ const Layout = props => (
           p: 2
         }}
       >
-        © Yannick Gloster {new Date().getFullYear()}
+        <Text variant="footer">
+          © Yannick Gloster {new Date().getFullYear()}
+        </Text>
       </Box>
     </Box>
   </ThemeProvider>
