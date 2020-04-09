@@ -1,4 +1,3 @@
-import "../styles.css";
 import "font-awesome/css/font-awesome.min.css";
 
 // Global CSS File

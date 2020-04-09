@@ -1,19 +1,21 @@
 import { Box, Card, Image, Heading, Text, Flex, Button, Link } from "rebass";
 import { ThemeProvider } from "theme-ui";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBolt } from "@fortawesome/free-solid-svg-icons";
 import sailing from "../themes/sailing";
 
-const Layout = props => (
+const Layout = (props) => (
   <ThemeProvider theme={sailing}>
     <Box
       sx={{
         display: "flex",
         flexDirection: "column",
-        minHeight: "100vh"
+        minHeight: "100vh",
       }}
     >
       <Flex px={2} alignItems="center" bg="primary">
         <Link variant="links.nav" fontWeight="bold" href="/">
-          <i class="fa fa-grav" aria-hidden="true"></i>
+          <FontAwesomeIcon icon={faBolt} />
           {"  "}YannickGloster.com
         </Link>
         <Box mx="auto" />
@@ -21,7 +23,7 @@ const Layout = props => (
           Computer Science
         </Link>
         <Link variant="links.nav" p={2} href="/media">
-          Media
+          Film & Photography
         </Link>
         <Link variant="links.nav" p={2} href="/sailing">
           Sailing
@@ -30,14 +32,14 @@ const Layout = props => (
       <Box
         sx={{
           flex: "1 1 auto",
-          p: 2
+          p: 2,
         }}
       >
         {props.children}
       </Box>
       <Box
         sx={{
-          p: 2
+          p: 2,
         }}
       >
         <Text variant="footer">
