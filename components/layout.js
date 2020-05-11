@@ -1,12 +1,12 @@
-import { Container } from "@material-ui/core";
-
 const border = {
   border: "1px solid #DDD",
 };
 
+import { Container } from "semantic-ui-react";
+
 const Layout = (props) => (
-  <Container maxWidth="sm" style={border}>
-    {props.children}
+  <Container style={border}>
+    <p>{props.children}</p>
   </Container>
 );
 
