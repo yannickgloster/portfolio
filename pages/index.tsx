@@ -1,9 +1,9 @@
 import React from "react";
+import axios from "axios";
+
 import Container from "@material-ui/core/Container";
 import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
-import Link from "../src/Link";
-import Copyright from "../src/Copyright";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
@@ -14,11 +14,39 @@ import Image from "material-ui-image";
 import Grid from "@material-ui/core/Grid";
 import Avatar from "@material-ui/core/Avatar";
 
-function getSteps() {
-  return ["About", "Work Experience", "Education", "Projects"];
+import Link from "../src/Link";
+import Copyright from "../src/Copyright";
+import YouTubeCarousel from "../src/YouTube";
+
+import youtubePlaylistItem from "../types/youtube";
+
+interface props {
+  data_youtube: youtubePlaylistItem[];
 }
 
-function getStepContent(step: number) {
+export async function getServerSideProps() {
+  let data_youtube: youtubePlaylistItem[] = [];
+  try {
+    const res = await axios.get(
+      `https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=50&playlistId=PLTnUyWANT57Prp9BGGh6bYFZ8y4eUN7wE&key=${process.env.YOUTUBE_API_KEY}`
+    );
+    data_youtube = await res.data.items;
+  } catch (e) {
+    console.log(e);
+  }
+
+  return {
+    props: {
+      data_youtube,
+    },
+  };
+}
+
+function getSteps() {
+  return ["About", "Work Experience", "Education", "Projects", "Videos"];
+}
+
+function getStepContent(step: number, data_youtube: youtubePlaylistItem[]) {
   switch (step) {
     case 0:
       return (
@@ -43,7 +71,7 @@ function getStepContent(step: number) {
       );
     case 1:
       return (
-        <>
+        <Box>
           <Avatar variant="square">MS Logo</Avatar>
           <Typography variant="h3" gutterBottom>
             Microsoft
@@ -64,17 +92,20 @@ function getStepContent(step: number) {
           <Typography variant="overline" display="block" gutterBottom>
             🔗Link 2
           </Typography>
-        </>
+        </Box>
       );
     case 2:
       return (
-        <>
+        <Box>
           <Avatar variant="square">TCD Logo</Avatar>
           <Typography variant="h3" gutterBottom>
             Trinity College Dublin
           </Typography>
           <Typography variant="h5" gutterBottom>
             Integrated Computer Science
+          </Typography>
+          <Typography variant="h5" gutterBottom>
+            Tangent Course
           </Typography>
           <Typography variant="overline" display="block" gutterBottom>
             1st - 82%
@@ -90,16 +121,18 @@ function getStepContent(step: number) {
               mark
             </Typography>
           </li>
-        </>
+        </Box>
       );
     case 3:
-      return <>Project Card</>;
+      return <Box>Project Card</Box>;
+    case 4:
+      return <YouTubeCarousel data={data_youtube} />;
     default:
       return "Unknown step";
   }
 }
 
-export default function Index() {
+export default function Index({ data_youtube }: props) {
   // const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const steps = getSteps();
@@ -131,7 +164,7 @@ export default function Index() {
             <Step key={label}>
               <StepLabel>{label}</StepLabel>
               <StepContent>
-                <Typography>{getStepContent(index)}</Typography>
+                <Typography>{getStepContent(index, data_youtube)}</Typography>
                 <Box>
                   <Box>
                     <Button disabled={activeStep === 0} onClick={handleBack}>

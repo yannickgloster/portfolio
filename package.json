@@ -5,11 +5,13 @@
   "dependencies": {
     "@material-ui/core": "latest",
     "@material-ui/icons": "^4.11.2",
+    "axios": "^0.21.1",
     "clsx": "latest",
     "material-ui-image": "^3.3.2",
     "next": "latest",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "react-material-ui-carousel": "^2.2.4"
   },
   "scripts": {
     "dev": "next",
