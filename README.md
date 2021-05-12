@@ -1,1 +1,1 @@
-# yannickgloster.github.io
+# [YannickGloster.com](https://yannickgloster.com/)
