@@ -43,11 +43,6 @@ export default function Index() {
           Yannick Gloster
         </WhiteTypography>
         <Box display="flex" justifyContent="center">
-          <WhiteTypography variant="overline" align="center" gutterBottom>
-            new website coming after exams
-          </WhiteTypography>
-        </Box>
-        <Box display="flex" justifyContent="center">
           <Box margin={2}>
             <Button
               variant="contained"
