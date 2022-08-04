@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
   background: {
     backgroundImage: "url(overlay.png), url(howth.jpg)",
     minHeight: "100vh",
-    minWidth: "100vh",
     backgroundPosition: "center",
     backgroundSize: "cover",
   },
