@@ -31,7 +31,7 @@ export default function Index() {
     <Grid
       container
       direction="row"
-      justify="center"
+      justifyContent="center"
       alignItems="center"
       className={classes.background}
     >
@@ -44,7 +44,7 @@ export default function Index() {
         >
           Yannick Gloster
         </WhiteTypography>
-        <Box display="flex" justifyContent="center">
+        <Box display="flex" flexWrap="wrap" justifyContent="center">
           <Box margin={2}>
             <Button
               variant="contained"
