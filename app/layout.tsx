@@ -3,6 +3,7 @@ import { Roboto, JetBrains_Mono, Crimson_Pro } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Analytics } from "@vercel/analytics/next";
 
 const roboto = Roboto({
   weight: ["300", "400", "500", "600", "700"],
@@ -51,6 +52,7 @@ export default function RootLayout({
         <ThemeProvider>
           <ThemeToggle />
           {children}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>
