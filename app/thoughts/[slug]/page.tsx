@@ -31,11 +31,13 @@ export async function generateMetadata({
         publishedTime: post.date,
         authors: [post.author],
         url: `/thoughts/${slug}`,
+        images: ["/opengraph-image"],
       },
       twitter: {
         card: "summary",
         title,
         description: post.description,
+        images: ["/opengraph-image"],
       },
     };
   } catch {
