@@ -126,4 +126,133 @@
     @apply bg-background text-foreground;
     @apply bg-background text-foreground;
   }
+
+  /* Blog post typography */
+  .prose {
+    @apply text-foreground max-w-none;
+  }
+
+  .prose h1 {
+    @apply text-3xl font-bold mt-8 mb-4 text-foreground;
+  }
+
+  .prose h2 {
+    @apply text-2xl font-semibold mt-8 mb-4 text-foreground;
+  }
+
+  .prose h3 {
+    @apply text-xl font-semibold mt-6 mb-3 text-foreground;
+  }
+
+  .prose p {
+    @apply text-muted-foreground leading-7 mb-4;
+  }
+
+  .prose a {
+    @apply text-teal-600 hover:underline;
+  }
+
+  .prose ul,
+  .prose ol {
+    @apply my-4 ml-6 text-muted-foreground;
+  }
+
+  .prose li {
+    @apply mb-2;
+  }
+
+  /* Code blocks */
+  .prose pre {
+    @apply bg-muted border border-border rounded-lg p-4 overflow-x-auto my-6;
+  }
+
+  .prose code {
+    @apply text-sm font-mono;
+  }
+
+  /* Inline code */
+  .prose :not(pre) > code {
+    @apply bg-muted text-teal-600 px-1.5 py-0.5 rounded text-sm;
+  }
+
+  /* Blockquotes */
+  .prose blockquote {
+    @apply border-l-4 border-teal-600 pl-4 italic text-muted-foreground my-6;
+  }
+
+  /* Tables */
+  .prose table {
+    @apply w-full border-collapse my-6;
+  }
+
+  .prose th {
+    @apply bg-muted font-semibold text-left p-2 border border-border;
+  }
+
+  .prose td {
+    @apply p-2 border border-border text-muted-foreground;
+  }
+
+  /* Images */
+  .prose img {
+    @apply rounded-lg my-6 w-full;
+  }
+
+  /* Horizontal rule */
+  .prose hr {
+    @apply my-8 border-border;
+  }
+
+  /* GitHub-style syntax highlighting tokens */
+  .prose .token.comment,
+  .prose .token.prolog,
+  .prose .token.doctype,
+  .prose .token.cdata {
+    @apply text-muted-foreground;
+  }
+
+  .prose .token.punctuation {
+    @apply text-foreground;
+  }
+
+  .prose .token.property,
+  .prose .token.tag,
+  .prose .token.boolean,
+  .prose .token.number,
+  .prose .token.constant,
+  .prose .token.symbol {
+    @apply text-chart-3;
+  }
+
+  .prose .token.selector,
+  .prose .token.attr-name,
+  .prose .token.string,
+  .prose .token.char,
+  .prose .token.builtin,
+  .prose .token.inserted {
+    @apply text-chart-1;
+  }
+
+  .prose .token.operator,
+  .prose .token.entity,
+  .prose .token.url {
+    @apply text-teal-600;
+  }
+
+  .prose .token.atrule,
+  .prose .token.attr-value,
+  .prose .token.keyword {
+    @apply text-chart-2;
+  }
+
+  .prose .token.function,
+  .prose .token.class-name {
+    @apply text-chart-4;
+  }
+
+  .prose .token.regex,
+  .prose .token.important,
+  .prose .token.variable {
+    @apply text-chart-5;
+  }
 }
