@@ -20,9 +20,23 @@ export async function generateMetadata({
   const { slug } = await params;
   try {
     const post = await getPostBySlug(slug);
+    const title = `${post.title} | Yannick Gloster`;
     return {
-      title: `${post.title} | Yannick Gloster`,
+      title,
       description: post.description,
+      openGraph: {
+        title,
+        description: post.description,
+        type: "article",
+        publishedTime: post.date,
+        authors: [post.author],
+        url: `/thoughts/${slug}`,
+      },
+      twitter: {
+        card: "summary",
+        title,
+        description: post.description,
+      },
     };
   } catch {
     return {

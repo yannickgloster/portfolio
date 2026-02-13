@@ -5,24 +5,25 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 const roboto = Roboto({
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ["300", "400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-roboto",
 });
 
 const jetbrainsMono = JetBrains_Mono({
-  weight: ['400', '500', '600', '700'],
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-mono",
 });
 
 const crimsonPro = Crimson_Pro({
-  weight: ['400', '500', '600', '700'],
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-serif",
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.yannickgloster.com"),
   title: "Yannick Gloster",
   description: "Portfolio of Yannick Gloster",
 };
@@ -44,7 +45,9 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>
-      <body className={`${roboto.variable} ${jetbrainsMono.variable} ${crimsonPro.variable} font-sans antialiased`}>
+      <body
+        className={`${roboto.variable} ${jetbrainsMono.variable} ${crimsonPro.variable} font-sans antialiased`}
+      >
         <ThemeProvider>
           <ThemeToggle />
           {children}
